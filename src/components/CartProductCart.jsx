@@ -6,13 +6,14 @@ import { ProductContextComponent } from '../context/ProductsContext'
 const CartProductCart = ({ product }) => {
   const {removeProduct, setQuantity, quantity} = useContext(ProductContextComponent)
   return (
-    <div className='border p-4 text-lg'>
+    <div className='border-2 border-gray-500 shadow-xl shadow-gray-500/50 p-4 text-lg'>
           <img src={product.thumbnail} alt="thumbnail" />
           <h1 className='font-bold text-lg'>{product.title}</h1>
           <p>Price : ${product.price}</p>
           <p>Category : {product.category}</p>
        
       <p>{product.availabilityStatus}</p>
+      <p>Quantity : </p>
       <input type='number' value={quantity} onChange={(e) =>setQuantity(Number(e.target.value))} />
           
         <Menu as="div" className="relative inline-block">

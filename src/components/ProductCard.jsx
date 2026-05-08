@@ -1,5 +1,5 @@
 
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import {  Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useContext} from 'react'
 import { ProductContextComponent } from '../context/ProductsContext'
@@ -21,11 +21,12 @@ const ProductCard = ({ product }) => {
 
 
   return (
-      <div className='border p-4 text-lg'>
+      <div className='border-2 border-gray-500 shadow-xl shadow-gray-500/50 p-4 text-lg'>
           <img src={product.thumbnail} alt="thumbnail" />
           <h1 className='font-bold text-lg'>{product.title}</h1>
           <p>Price : ${product.price}</p>
       <p>Category : {product.category}</p>
+      <p>Add Quantity : </p>
       <input type='number' value={quantity} min='1' onChange={(e)=>setQuantity(Number(e.target.value))} />
       <p>{product.availabilityStatus}</p>
           
@@ -51,11 +52,13 @@ const ProductCard = ({ product }) => {
       </MenuItems>
           </Menu>  
           
-      <p>{product.warrantyInformation}</p>
+      
 
-      <button className='bg-yellow-500 py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
+      <div className='flex gap-5 mt-2'>
+        <button className='bg-yellow-500 py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
       
       <button className='bg-yellow-500 py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
+      </div>
           
     </div>
   )

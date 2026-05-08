@@ -21,7 +21,8 @@ const DetailsPage = () => {
               <p className="font-bold text-2xl">{product.title}</p>
               <p>{product.description}</p>
               <p>{product.brand}</p>
-              <p>Rating: {product.rating}</p>
+        <p>Rating: {product.rating}</p>
+        <p>{product.warrantyInformation}</p>
               <p className="font-bold text-2xl">Reviews : </p>
               {product.reviews.map((review) => <p>comments :   {review.comment} <p> rating :   {review.rating}</p> <p>reviewerName :   {review.reviewerName}</p></p>)}
               <p className="underline underline-offset-2">{product.returnPolicy}</p>
