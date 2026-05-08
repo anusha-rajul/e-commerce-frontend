@@ -20,7 +20,7 @@ const DetailsPage = () => {
               <img src={product.images[0]} alt='images' className="h-100" />
               <p className="font-bold text-2xl">{product.title}</p>
               <p>{product.description}</p>
-              <p>{product.brand}</p>
+              <p>Brand : {product.brand}</p>
         <p>Rating: {product.rating}</p>
         <p>{product.warrantyInformation}</p>
               <p className="font-bold text-2xl">Reviews : </p>
