@@ -21,14 +21,14 @@ const ProductCard = ({ product }) => {
 
 
   return (
-      <div className='border-2 border-gray-500 shadow-xl shadow-gray-500/50 p-4 text-lg'>
-          <img src={product.thumbnail} alt="thumbnail" />
+      <div className='bg-gradient-to-br from-[#e4cec0] to-[#26292b] p-4 text-lg rounded-md'>
+          <img className='h-[200px]' src={product.thumbnail} alt="thumbnail" />
           <h1 className='font-bold text-lg'>{product.title}</h1>
           <p>Price : ${product.price}</p>
-      <p>Category : {product.category}</p>
+      
       <p>Add Quantity : </p>
       <input type='number' value={quantity} min='1' onChange={(e)=>setQuantity(Number(e.target.value))} />
-      <p>{product.availabilityStatus}</p>
+     
           
         <Menu as="div" className="relative inline-block">
       <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring-1 inset-ring-gray-300 hover:bg-gray-50">
@@ -55,9 +55,9 @@ const ProductCard = ({ product }) => {
       
 
       <div className='flex gap-5 mt-2'>
-        <button className='bg-yellow-500 py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
+        <button className='bg-[#26292b] text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
       
-      <button className='bg-yellow-500 py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
+      <button className='bg-[#26292b] text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
       </div>
           
     </div>

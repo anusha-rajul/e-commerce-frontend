@@ -15,18 +15,23 @@ const DetailsPage = () => {
   
   return (
     <div>
-          {product ? <div className="w-3/4 mx-auto flex flex-col gap-4 grid justify-items-start text-lg mb-10">
+          {product ? <div className="grid grid-cols-1 md:grid-cols-3 p-4 md:p-0" >
          
-              <img src={product.images[0]} alt='images' className="h-100" />
-              <p className="font-bold text-2xl">{product.title}</p>
+        <div>
+          <img src={product.images[0]} alt='images' className="h-100" />
+          </div>
+        <div className="flex flex-col gap-2 text-lg">
+          <p className="font-bold text-2xl md:col-span-2">{product.title}</p>
               <p>{product.description}</p>
               <p>Brand : {product.brand}</p>
         <p>Rating: {product.rating}</p>
         <p>{product.warrantyInformation}</p>
+         <p>Availability: <span className="underline underline-offset-2" >{product.availabilityStatus}</span></p>
               <p className="font-bold text-2xl">Reviews : </p>
               {product.reviews.map((review) => <p>comments :   {review.comment} <p> rating :   {review.rating}</p> <p>reviewerName :   {review.reviewerName}</p></p>)}
               <p className="underline underline-offset-2">{product.returnPolicy}</p>
 
+          </div>
               </div>
           :
              <h1>No product</h1>

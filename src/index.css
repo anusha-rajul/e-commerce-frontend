@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --background-image-card-gradient: linear-gradient(135deg, #e4cec0 0%, #26292b 100%)
+}

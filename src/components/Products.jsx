@@ -40,7 +40,7 @@ const Products = () => {
   return (
     <>
       <div className="flex flex-col md:flex-row justify-center items-center my-10 gap-5 md:gap-10 ">
-        <input value={search} type="text" placeholder="search" className="bg-gray-300 px-4 py-2 w-1/2 md:w-1/3 border rounded" onChange={(e) => setSearch(e.target.value)} />
+        <input value={search} type="text" placeholder="search" className="px-4 py-2 w-1/2 md:w-1/3 border rounded" onChange={(e) => setSearch(e.target.value)} />
         <select value={selection} onChange={(e) => setSelection(e.target.value)} className="border px-4 py-2 rounded">
           <option value="">All</option>
           <option value="beauty">Beauty</option>
@@ -62,7 +62,7 @@ const Products = () => {
      
           {isLoading ?
             
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-4">
               {Array(8).fill(0).map((_, index) => (
                 <div key={index} className="p-4 border my-10 flex flex-col gap-10">
                   <Skeleton height={150} />
@@ -76,7 +76,7 @@ const Products = () => {
               
             </div>
             
-          : <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-10">
+          : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mx-10">
         {filteredProducts.map((product) => {
               return <ProductCard key={product.id} product={product} />
         })}
@@ -89,7 +89,7 @@ const Products = () => {
 
       <div className="flex justify-center items-center gap-5 md:gap-20 m-10">
         {numbers.map((number) => {
-          return <div key={number} className="bg-blue-600 p-4 cursor-pointer" onClick={() => setIndex(number)}>
+          return <div key={number} className="bg-[#26292b] text-white rounded-md p-4 cursor-pointer" onClick={() => setIndex(number)}>
             {number}
           </div>
         

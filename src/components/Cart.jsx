@@ -13,7 +13,7 @@ const Cart = () => {
     <>
       <h1 className="font-bold text-2xl mb-5 mx-5">Total: {total.toFixed(2)}</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {cart.map((item, index) => {
           return <CartProductCard key={index} product={item} />
           })}

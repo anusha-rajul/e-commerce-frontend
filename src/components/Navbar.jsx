@@ -7,7 +7,7 @@ import { ProductContextComponent } from '../context/ProductsContext'
 const Navbar = () => {
   const {cartItems} = useContext(ProductContextComponent)
   return (
-      <div className='flex justify-between px-10 py-5 bg-blue-300 mb-5'>
+      <div className='flex justify-between  px-10 py-5  mb-5'>
       <Link to='/'><h1 className='text-lg font-bold'>Shopping</h1></Link>
       
       <div>
