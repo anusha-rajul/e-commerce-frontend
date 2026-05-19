@@ -62,9 +62,9 @@ const Products = () => {
      
           {isLoading ?
             
-            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
               {Array(8).fill(0).map((_, index) => (
-                <div key={index} className="p-4 border my-10 flex flex-col gap-10">
+                <div key={index} className="p-4  my-10 flex flex-col gap-3">
                   <Skeleton height={150} />
                   <Skeleton height={20} />
                   <Skeleton height={20} />
