@@ -4,7 +4,7 @@ import { ProductContextComponent } from '../context/ProductsContext'
 const CartProductCart = ({ product }) => {
   const {removeProduct, setQuantity, quantity} = useContext(ProductContextComponent)
   return (
-    <div className='bg-gradient-to-br from-[#e4cec0] to-[#26292b] rounded-md p-4 text-lg'>
+    <div className='bg-white border border-white shadow-lg rounded-md p-4 text-lg'>
           <img className='h-[200px]' src={product.thumbnail} alt="thumbnail" />
           <h1 className='font-bold text-lg'>{product.title}</h1>
           <p>Price : ${product.price}</p>

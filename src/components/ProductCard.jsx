@@ -21,8 +21,9 @@ const ProductCard = ({ product }) => {
 
 
   return (
-      <div className='bg-gradient-to-br from-[#e4cec0] to-[#26292b] p-4 text-lg rounded-md'>
-          <img className='h-[200px]' src={product.thumbnail} alt="thumbnail" />
+      <div className=' bg-white border border-white shadow-lg p-4 text-lg rounded-md'>
+      <img className='h-[200px]' src={product.thumbnail} alt="thumbnail" />
+      <hr className='opacity-25'/>
           <h1 className='font-bold text-lg'>{product.title}</h1>
           <p>Price : ${product.price}</p>
       
@@ -55,9 +56,9 @@ const ProductCard = ({ product }) => {
       
 
       <div className='flex gap-5 mt-2'>
-        <button className='bg-[#26292b] text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
+        <button className='bg-blue-500 text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
       
-      <button className='bg-[#26292b] text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
+      <button className='bg-blue-500 text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
       </div>
           
     </div>
