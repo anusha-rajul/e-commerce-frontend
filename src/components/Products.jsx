@@ -38,58 +38,61 @@ const Products = () => {
 
   return (
     <>
-      {/* Hero Image */}
-      <div className="relative">
-        <div
-          className="h-[200px] bg-cover bg-center relative"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        >
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
+     {/* Search Section */}
+<div className="relative flex justify-center items-center">
 
-        {/* Search + Filters */}
-        <div className="absolute left-1/2 bottom-[-45px] -translate-x-1/2 z-10 w-[90%] md:w-[80%]">
-          <div className="bg-white shadow-xl rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-center items-center gap-4">
-            
-            <input
-              value={search}
-              type="text"
-              placeholder="Search products"
-              className="px-4 py-2 w-full md:w-1/3  rounded-lg outline-none"
-              onChange={(e) => setSearch(e.target.value)}
-            />
+  {/* Search + Filters */}
+  <div className="w-[90%] md:w-[80%] relative rounded-xl overflow-hidden shadow-xl">
 
-            <select
-              value={selection}
-              onChange={(e) => setSelection(e.target.value)}
-              className="px-4 py-2 rounded-lg w-full md:w-auto"
-            >
-              <option value="">All</option>
-              <option value="beauty">Beauty</option>
-              <option value="groceries">Groceries</option>
-              <option value="fragrances">Fragrances</option>
-            </select>
+    {/* Background Image covering whole search box */}
+    <img
+      src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop"
+      alt="search-bg"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
 
-            <select
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              className="px-4 py-2 rounded-lg w-full md:w-auto"
-            >
-              <option value="">All Prices</option>
-              <option value="1-50">$1-$50</option>
-              <option value="51-100">$51-$100</option>
-              <option value="101-150">$101-$150</option>
-            </select>
-          </div>
-        </div>
-      </div>
+    {/* Dark Overlay */}
+    <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* Extra Space for Overlapping Filters */}
-      <div className="mt-24">
+    {/* Inputs on top of image */}
+    <div className="relative z-10 p-6 md:p-8 flex flex-col md:flex-row justify-center items-center gap-4">
+
+      <input
+        value={search}
+        type="text"
+        placeholder="Search products"
+        className="px-4 py-3 w-full md:w-1/3 rounded-lg outline-none bg-white text-black"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <select
+        value={selection}
+        onChange={(e) => setSelection(e.target.value)}
+        className="px-4 py-3 rounded-lg w-full md:w-auto bg-white text-black"
+      >
+        <option value="">All</option>
+        <option value="beauty">Beauty</option>
+        <option value="groceries">Groceries</option>
+        <option value="fragrances">Fragrances</option>
+      </select>
+
+      <select
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        className="px-4 py-3 rounded-lg w-full md:w-auto bg-white text-black"
+      >
+        <option value="">All Prices</option>
+        <option value="1-50">$1-$50</option>
+        <option value="51-100">$51-$100</option>
+        <option value="101-150">$101-$150</option>
+      </select>
+
+    </div>
+  </div>
+</div>
+
+      {/* Products */}
+      <div className="mt-10">
         {items === 0 ? (
           <h1 className="flex justify-center items-center font-bold text-2xl">
             No product with that name
