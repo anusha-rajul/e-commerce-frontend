@@ -1,16 +1,20 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
 import { ProductContextComponent } from "../context/ProductsContext";
 import useDebounce from "./useDebounce";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useSearchParams } from "react-router-dom";
 
 const Products = () => {
+  const [searchParams] = useSearchParams()
   const { products, setIndex, isLoading } = useContext(ProductContextComponent);
-
+ 
   const [search, setSearch] = useState("");
-  const [selection, setSelection] = useState("");
+  const [selection, setSelection] = useState(searchParams.get('category') || "");
   const [price, setPrice] = useState("");
+
+ const categoryParam = searchParams.get('category') || ''
 
   let numbers = [1, 2, 3, 4, 5];
 
@@ -36,13 +40,17 @@ const Products = () => {
 
   let items = filteredProducts.length;
 
+  useEffect(() => {
+     setSelection(categoryParam)
+  },[categoryParam])
+
   return (
     <>
      {/* Search Section */}
 <div className="relative flex justify-center items-center">
 
   {/* Search + Filters */}
-  <div className="w-[90%] md:w-[80%] relative rounded-xl overflow-hidden shadow-xl">
+  <div className="w-[90%] md:w-[80%] relative rounded-xl mt-5 overflow-hidden shadow-xl">
 
     {/* Background Image covering whole search box */}
     <img

@@ -11,7 +11,7 @@ const CartProductCart = ({ product }) => {
      
       <p>{product.availabilityStatus}</p>
       <p>Quantity : </p>
-      <input type='number' value={quantity} onChange={(e) =>setQuantity(Number(e.target.value))} />
+      <input type='number' min={1} value={quantity} onChange={(e) =>setQuantity(Number(e.target.value))} />
      
           
       <p>{product.warrantyInformation}</p>

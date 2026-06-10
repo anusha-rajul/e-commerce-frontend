@@ -1,5 +1,5 @@
 import { createContext, useState } from "react"
-
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 
 
@@ -51,10 +51,11 @@ const ProductsContext = (props) => {
   function addToCart(id, quantity) {
     let filteredArray = products.find((prod) => prod.id === id)
     if (cart.some((item)=> item.id === id)) {
-      alert("Already added in cart")
+      toast.error("Already added in cart")
       return 
     }
-    setCart((prev) => [...prev, {...filteredArray, quantity}]) 
+    setCart((prev) => [...prev, { ...filteredArray, quantity }]) 
+    toast.success("Product added to cart.")
 
  
   }
@@ -63,6 +64,7 @@ const ProductsContext = (props) => {
     let updatedCart = cart.filter((prod) => {
       return prod.id !== id
     })
+    toast.success("Product removed")
     setCart(updatedCart)
    
   }
