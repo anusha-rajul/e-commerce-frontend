@@ -13,9 +13,9 @@ const ProductsContext = (props) => {
   })
   const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
-  const [quantity, setQuantity] = useState(1)
+ 
 
-  let index = (pageNumber - 1) * 10
+  let index = (pageNumber - 1) * 10 + 4
 
   
   function setIndex(num) {
@@ -78,11 +78,14 @@ const ProductsContext = (props) => {
   },[cart])
 
     
+  function updateQuantity(id, quantity) {
+    setCart(prev=>prev.map(item => item.id === id ? {...item, quantity}: item))
+  }
 
 
   return (
  
-          <ProductContextComponent.Provider value={{products, setProducts, cart, setCart, addToCart, setIndex, cartItems, removeProduct, isLoading, quantity, setQuantity}}>
+          <ProductContextComponent.Provider value={{products, setProducts, cart, setCart, addToCart, setIndex, cartItems, removeProduct, isLoading, updateQuantity}}>
               {props.children}
         </ProductContextComponent.Provider>
     

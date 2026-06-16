@@ -1,66 +1,69 @@
-
-import {  Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { useContext} from 'react'
+import { useContext, useState } from 'react'
 import { ProductContextComponent } from '../context/ProductsContext'
 import { useNavigate } from 'react-router-dom'
 
-
-
 const ProductCard = ({ product }) => {
-  
-  const {addToCart, quantity, setQuantity} = useContext(ProductContextComponent)
-  
+  const { addToCart } = useContext(ProductContextComponent)
+  const [quantity, setQuantity] = useState(1)
   const navigate = useNavigate()
 
-  function detailsPage(id) {
-    navigate(`/details/${id}`)
-    console.log(id)
-  }
-
-
-
   return (
-      <div className=' bg-white border border-white shadow-lg p-4 text-lg rounded-md'>
-      <img className='h-[200px]' src={product.thumbnail} alt="thumbnail" />
-      <hr className='opacity-25'/>
-          <h1 className='font-bold text-lg'>{product.title}</h1>
-          <p>Price : ${product.price}</p>
+    <div className='bg-white border border-zinc-100 rounded-xl overflow-hidden hover:border-zinc-200 transition-colors w-[220px]'>
       
-      <p>Add Quantity : </p>
-      <input type='number' value={quantity} min='1' onChange={(e)=>setQuantity(Number(e.target.value))} />
-     
-          
-        <Menu as="div" className="relative inline-block">
-      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring-1 inset-ring-gray-300 hover:bg-gray-50">
-        Reviews
-        <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
-      </MenuButton>
-
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-      >
-        <div className="py-1">
-          
-                      {product.reviews.map((review, index) => (
-                      <MenuItem key={index}>
-                          <p> * {review.comment}</p>
-          </MenuItem>
-         ))}
-          
-        </div>
-      </MenuItems>
-          </Menu>  
-          
+      {/* Image */}
+      <div className='relative bg-zinc-100 h-[180px] flex items-center justify-center overflow-hidden rounded-lg'>
+        <img
+          className='w-full h-full object-cover'
+          src={product.thumbnail}
+          alt={product.title}
+        />
       
-
-      <div className='flex gap-5 mt-2'>
-        <button className='bg-blue-500 text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{detailsPage(product.id)}}>Details</button>
-      
-      <button className='bg-blue-500 text-white py-1 px-2 rounded active:scale-95 cursor-pointer' onClick={()=>{addToCart(product.id, quantity)}}>Add to cart</button>
       </div>
-          
+
+      {/* Body */}
+      <div className='p-3.5'>
+        <p className='text-sm font-medium text-zinc-900 truncate mb-1'>{product.title}</p>
+
+        <p className='text-lg font-medium text-zinc-900 mb-3.5'>
+          ${product.price}
+          {product.discountPercentage && (
+            <span className='text-xs text-zinc-400 font-normal line-through ml-1.5'>
+              ${Math.round(product.price / (1 - product.discountPercentage / 100))}
+            </span>
+          )}
+        </p>
+
+        {/* Quantity */}
+        <div className='flex items-center border border-zinc-200 rounded-lg w-fit overflow-hidden mb-3'>
+          <button
+            className='w-8 h-8 bg-zinc-50 hover:bg-zinc-100 text-zinc-700 text-base flex items-center justify-center transition-colors'
+            onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+          >−</button>
+          <span className='w-9 text-center text-sm font-medium text-zinc-900 border-x border-zinc-200 leading-8'>
+            {quantity}
+          </span>
+          <button
+            className='w-8 h-8 bg-zinc-50 hover:bg-zinc-100 text-zinc-700 text-base flex items-center justify-center transition-colors'
+            onClick={() => setQuantity(prev => prev + 1)}
+          >+</button>
+        </div>
+
+        {/* Actions */}
+        <div className='flex gap-2'>
+          <button
+            className='flex-1 h-[34px] text-[13px] font-medium border border-zinc-200 rounded-lg bg-transparent hover:bg-zinc-50 active:scale-[0.97] transition-all cursor-pointer'
+            onClick={() => navigate(`/details/${product.id}`)}
+          >
+            Details
+          </button>
+          <button
+            className='flex-1 h-[34px] text-[13px] font-medium bg-blue-700 text-blue-50 border border-blue-700 rounded-lg hover:bg-blue-800 active:scale-[0.97] transition-all cursor-pointer'
+            onClick={() => addToCart(product.id, quantity)}
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
