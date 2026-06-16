@@ -1,16 +1,23 @@
-# React + Vite
+# E-Commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce website with products listings. Implimented filters, debounce search.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- responsive e-commerce app consuming DummyJSON REST API with product listing, details, and cart.
+- Debounce search, multi-category filters,
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend:** React.js, Tailwind CSS  
 
-## Expanding the ESLint configuration
+## Screenshots
+<img width="1907" height="905" alt="Screenshot 2026-06-16 171524" src="https://github.com/user-attachments/assets/eb50a149-4233-449b-988e-68ab99b92c88" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1912" height="907" alt="Screenshot 2026-06-16 171558" src="https://github.com/user-attachments/assets/06745351-2b50-42ae-95e1-24881806d2af" />
+
+<img width="1902" height="922" alt="Screenshot 2026-06-16 171626" src="https://github.com/user-attachments/assets/e7da8c5e-3ebd-4589-a6c9-6359e6073d3e" />
+
+## Live Demo
+
+https://e-commerce-frontend-three-eosin.vercel.app/
