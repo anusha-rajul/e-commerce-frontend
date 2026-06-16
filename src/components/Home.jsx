@@ -31,7 +31,7 @@ const Home = () => {
             </p>
           </div>
           <button
-            className="bg-white text-zinc-800 px-4 py-2 rounded-xl font-medium w-1/2 hover:bg-zinc-100 transition cursor-pointer"
+            className="bg-white text-zinc-800 px-4 py-2 rounded-xl font-medium w-full md:w-1/2 hover:bg-zinc-100 transition cursor-pointer"
             onClick={() => navigate('/products')}
           >
             Shop Now 

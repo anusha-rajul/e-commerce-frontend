@@ -126,7 +126,7 @@ const Products = () => {
                   ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mx-10 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mx-10 max-w-7xl mx-auto items-center justify-items-center">
                 {filteredProducts.map((product) => (
                   <ProductCard
                     key={product.id}

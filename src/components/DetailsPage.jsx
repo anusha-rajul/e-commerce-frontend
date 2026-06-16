@@ -84,7 +84,7 @@ const DetailsPage = () => {
             {product.reviews.map((review) => (
               <div className="bg-gray-100 rounded-lg px-4 py-2">
                 <p><span className="text-gray-700">Reviewer Name:</span> {review.reviewerName}</p>
-                <p>{review.rating}</p>
+                <p><span className="text-gray-700">Ratings: </span> {review.rating}</p>
                 <p className="text-lg "><span className="text-gray-700">Comment: </span>{review.comment}</p>
               </div>
             ))}
